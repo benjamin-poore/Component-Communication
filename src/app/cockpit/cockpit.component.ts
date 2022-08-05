@@ -1,11 +1,22 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit, AfterViewChecked, AfterViewInit,
+  Component,
+  DoCheck,
+  ElementRef,
+  EventEmitter,
+  OnChanges, OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
   templateUrl: './cockpit.component.html',
   styleUrls: ['./cockpit.component.css']
 })
-export class CockpitComponent implements OnInit {
+export class CockpitComponent implements OnInit{
   @Output()
   serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated')
@@ -20,6 +31,7 @@ export class CockpitComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('init');
   }
 
   onAddServer(nameInput: HTMLInputElement ) {
